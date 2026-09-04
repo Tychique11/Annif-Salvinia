@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 export default function Letter({ onBack }) {
   const fullText = `Ma chère Salvinia,
 
-Vingt-sept ans aujourd'hui ! C'est un âge magnifique, et je suis si heureux de pouvoir célébrer cette journée si spéciale avec toi.
+Vingt-sept ans aujourd'hui ! C'est un âge magnifique, et je suis si heureuse de pouvoir célébrer cette journée si spéciale avec toi.
 
 Que cette nouvelle année de ta vie t'apporte autant de joie, de douceur, de réussite et de féerie que cette petite surprise. Tu es une personne vraiment extraordinaire et précieuse.
 

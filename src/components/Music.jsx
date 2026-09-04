@@ -1,13 +1,25 @@
 import React from 'react';
+// 1. On importe la vidéo depuis le dossier assets (assurez-vous que le chemin est bon)
+import maVideo from './ma-video.mp4'; 
 
 export default function Music({ onBack }) {
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1 className="script-title">Cette Chanson est pour Toi</h1>
-      <p className="sub-title">Ayra Starr - Last Heartbreak Song ft. Giveon</p>
+      <h1 className="script-title">Cette video est pour Toi</h1>
+      
 
       <div className="lace-frame video-wrapper" style={{ margin: '0 auto' }}>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/nAmb-yMAEos?si=ebHYC7fOn3wZcAUy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {/* 2. On remplace l'iframe par la balise video */}
+        <video 
+          width="560" 
+          height="315" 
+          controls 
+          autoPlay 
+          style={{ maxWidth: '100%', height: 'auto', borderRadius: '10px' }}
+        >
+          <source src={maVideo} type="video/mp4" />
+          Votre navigateur ne supporte pas la lecture de cette vidéo.
+        </video>
       </div>
 
       <button className="btn-magical btn-back" onClick={onBack}>← Retour</button>

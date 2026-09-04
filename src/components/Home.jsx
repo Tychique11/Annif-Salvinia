@@ -7,22 +7,42 @@ export default function Home({ onNext }) {
       <h2 className="sub-title">Salvinia — 27 Ans Aujourd'hui</h2>
 
       <div className="cake-svg-container">
-        <svg viewBox="0 0 200 200" width="100%" height="100%">
-          {/* Bougies et flammes féeriques */}
+        <svg viewBox="0 0 300 300" width="100%" height="100%">
+          {/* Ombrage du socle */}
+          <ellipse cx="150" cy="255" rx="90" ry="15" fill="#e0b1cb" opacity="0.4" />
+
+          {/* --- Étage du bas (Socle large) --- */}
+          <path d="M 70 240 L 230 240 L 220 190 L 80 190 Z" fill="#f8edeb" stroke="#d4af37" strokeWidth="2.5" />
+          {/* Glaçage et décorations dentelle étage bas */}
+          <path d="M 80 190 Q 150 205 220 190 Z" fill="#ffb5a7" />
+          <path d="M 70 240 Q 80 250 90 240 Q 100 250 110 240 Q 120 250 130 240 Q 140 250 150 240 Q 160 250 170 240 Q 180 250 190 240 Q 200 250 210 240 Q 220 250 230 240" fill="none" stroke="#fff" strokeWidth="3" />
+
+          {/* --- Étage du milieu --- */}
+          <path d="M 95 190 L 205 190 L 195 140 L 105 140 Z" fill="#ffe5ec" stroke="#d4af37" strokeWidth="2.5" />
+          {/* Coulures de glaçage étage milieu */}
+          <path d="M 105 140 Q 150 155 205 140 Z" fill="#f4acb7" />
+          <path d="M 95 190 Q 105 198 115 190 Q 125 198 135 190 Q 145 198 155 190 Q 165 198 175 190 Q 185 198 195 190 Q 205 198 215 190" fill="none" stroke="#fff" strokeWidth="2.5" />
+
+          {/* --- Étage du haut --- */}
+          <path d="M 120 140 L 180 140 L 175 95 L 125 95 Z" fill="#ffb5a7" stroke="#d4af37" strokeWidth="2.5" />
+          <path d="M 125 95 Q 150 105 180 140 Z" fill="#f8edeb" opacity="0.3" />
+
+          {/* --- Bougies et flammes féeriques --- */}
           <g>
-            {[50, 75, 100, 125, 150].map((x, i) => (
+            {[135, 150, 165].map((x, i) => (
               <g key={i}>
-                <rect x={x - 3} y="55" width="6" height="30" fill="#f4acb7" rx="2" />
-                <ellipse className="flame" cx={x} cy="48" rx="4" ry="8" fill="#ffd166" />
+                <rect x={x - 3} y="65" width="6" height="32" fill="#f4acb7" rx="2" stroke="#d4af37" strokeWidth="1" />
+                {/* Rayures des bougies */}
+                <line x1={x - 3} y1="73" x2={x + 3} y2="70" stroke="#fff" strokeWidth="1.5" />
+                <line x1={x - 3} y1="83" x2={x + 3} y2="80" stroke="#fff" strokeWidth="1.5" />
+                {/* Mèche */}
+                <line x1={x} y1="65" x2={x} y2="61" stroke="#333" strokeWidth="1.5" />
+                {/* Flamme */}
+                <ellipse className="flame" cx={x} cy="53" rx="5" ry="9" fill="#ffd166" />
+                <ellipse cx={x} cy="54" rx="2" ry="4" fill="#ff9f1c" />
               </g>
             ))}
           </g>
-          {/* Gâteau de mariage / anniversaire à étages */}
-          <path d="M 30 150 L 170 150 L 160 115 L 40 115 Z" fill="#ffe5ec" stroke="#d4af37" strokeWidth="2" />
-          <path d="M 45 115 L 155 115 L 145 85 L 55 85 Z" fill="#ffb5a7" stroke="#d4af37" strokeWidth="2" />
-          <path d="M 20 180 L 180 180 L 170 150 L 30 150 Z" fill="#f8edeb" stroke="#d4af37" strokeWidth="2" />
-          {/* Décorations dentelle du gâteau */}
-          <path d="M 20 180 Q 30 190 40 180 Q 50 190 60 180 Q 70 190 80 180 Q 90 190 100 180 Q 110 190 120 180 Q 130 190 140 180 Q 150 190 160 180 Q 170 190 180 180" fill="none" stroke="#fff" strokeWidth="3" />
         </svg>
       </div>
 
