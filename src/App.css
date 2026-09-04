@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #1f0810 0%, #3a0d1d 50%, #1a050d 100%);
+  --accent-gold: #d4af37;
+  --accent-rose: #ffccd5;
+  --cream-bg: #fdfbf7;
+  --lace-border: #e8ded1;
+  --text-dark: #2b0b14;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg-gradient);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Arrière-plan féerique avec étincelles */
+.magical-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.sparkle-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #ffd700, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ffa07a, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: sparkleAnim 6s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes sparkleAnim {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
+}
+
+/* Titres */
+.script-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.2rem;
+  color: var(--accent-rose);
+  text-shadow: 0 0 12px rgba(255, 204, 213, 0.6);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.sub-title {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+  color: var(--accent-gold);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Boutons */
+.btn-magical {
+  background: linear-gradient(135deg, #d4af37, #aa820a);
+  color: #1a050d;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s ease;
+  margin: 10px;
+}
+
+.btn-magical:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+}
+
+.btn-back {
+  margin-top: 40px;
+  background: transparent;
+  border: 1.5px solid var(--accent-rose);
+  color: var(--accent-rose);
+}
+
+.btn-back:hover {
+  background: var(--accent-rose);
+  color: var(--text-dark);
+}
+
+/* CADRE DENTELLE (LACE BORDER) */
+.lace-frame {
+  background-color: var(--cream-bg);
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  border: 6px dashed #d1c0aa;
+  outline: 4px solid var(--cream-bg);
+  position: relative;
+}
+
+/* Page 1: Gâteau */
+.cake-card {
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.cake-svg-container {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 0 10px rgba(255, 204, 213, 0.5));
+}
+
+.flame {
+  animation: flicker 1s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
+  100% { transform: scale(1.15) rotate(2deg); opacity: 1; }
+}
+
+/* Page 2: Sélection 3 Cœurs */
+.hearts-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.heart-item {
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.heart-item:hover {
+  transform: translateY(-10px) scale(1.08);
+}
+
+.heart-doily {
+  width: 130px;
+  height: 130px;
+  background: #fdfbf7;
+  clip-path: path('M 65 115 C 65 115 10 75 10 40 C 10 20 25 10 45 10 C 57 10 65 20 65 20 C 65 20 73 10 85 10 C 105 10 120 20 120 40 C 120 75 65 115 65 115 Z');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(255, 204, 213, 0.4);
+  border: 4px dotted #c9b097;
+}
+
+.heart-label {
+  margin-top: 15px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: var(--accent-rose);
+}
+
+/* Page 3: Pyramide de Photos */
+.pyramid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+}
+
+.pyramid-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.photo-card {
+  width: 140px;
+  height: 160px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Page 4: Lecteur Musique */
+.video-wrapper {
+  width: 100%;
+  max-width: 650px;
+  aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Page 5: Lettre & Bande Photo (Photostrip) */
+.letter-section-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+}
+
+.letter-card {
+  background: #fcf9f2;
+  color: var(--text-dark);
+  padding: 35px;
+  border-radius: 12px;
+  max-width: 520px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid #e2d5c3;
+  position: relative;
+}
+
+.letter-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.photostrip {
+  background: #ffffff;
+  padding: 15px 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 160px;
+  border-radius: 4px;
+}
+
+.photostrip-img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
