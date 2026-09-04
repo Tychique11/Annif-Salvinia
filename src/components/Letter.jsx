@@ -1,38 +1,42 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Letter({ onBack }) {
-  const fullText = `Ma chère Salvinia,
+  const fullText = `Joyeux 27ème anniversaire, dada Salvinia 🥹 !
 
-Vingt-sept ans aujourd'hui ! C'est un âge magnifique, et je suis si heureuse de pouvoir célébrer cette journée si spéciale avec toi.
+Je ne saurai comment te remercier pour tout ce que tu fais. Tu es toujours là, de toutes les manières possibles, à la moindre minute où l'on a besoin de toi. 
 
-Que cette nouvelle année de ta vie t'apporte autant de joie, de douceur, de réussite et de féerie que cette petite surprise. Tu es une personne vraiment extraordinaire et précieuse.
+Tu sais toujours écouter, panser les trucs et nous porter, même s'il ne te reste que ton dernier billet en poche. Tu ne comptes jamais quand il s'agit de tendre la main.
 
-Joyeux 27ème anniversaire ! ✨💖`;
+Quoi qu'il arrive, tu réponds toujours présente... Merci d'être tout simplement toi. ✨💖`;
 
   const [displayedText, setDisplayedText] = useState('');
 
+  // Animation fluide style machine à écrire
   useEffect(() => {
     let index = 0;
     const timer = setInterval(() => {
-      if (index < fullText.length) {
-        setDisplayedText(prev => prev + fullText.charAt(index));
+      if (index <= fullText.length) {
+        setDisplayedText(fullText.substring(0, index));
         index++;
       } else {
         clearInterval(timer);
       }
-    }, 45);
+    }, 35); // Vitesse un peu plus fluide et agréable
 
     return () => clearInterval(timer);
-  }, []);
+  }, [fullText]);
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
       <h1 className="script-title">Une Douce Lettre</h1>
 
-      <div className="letter-section-container">
+      {/* Conteneur principal avec beaucoup d'espace pour détacher la lettre */}
+      <div className="letter-section-container" style={{ margin: '40px auto 30px auto' }}>
         {/* Parchemin de la lettre */}
         <div className="letter-card">
-          <div className="letter-text">{displayedText}</div>
+          <div className="letter-text" style={{ whiteSpace: 'pre-line', minHeight: '280px' }}>
+            {displayedText}
+          </div>
         </div>
 
         {/* Photostrip Polaroid vertical à droite */}
